@@ -1,11 +1,15 @@
 require 'spec_helper'
 
 describe "Restaurants" do
-  describe "GET /restaurants" do
-    it "works! (now write some real specs)" do
-      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
-      get restaurants_index_path
-      response.status.should be(200)
-    end
+
+  describe "on the new restaurant page" do
+  	before { visit new_restaurant_path }
+
+  	subject { page }
+
+  	it { should have_content("Add restaurant") }  
+
+  		describe "filling in a new restaurant form" do
+  		end
   end
-end
+end	
