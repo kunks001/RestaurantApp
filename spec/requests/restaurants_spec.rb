@@ -1,15 +1,26 @@
 require 'spec_helper'
 
 describe "Restaurants" do
+	subject { page }
 
-  describe "on the new restaurant page" do
+  describe "new" do
   	before { visit new_restaurant_path }
-
-  	subject { page }
 
   	it { should have_content("Add restaurant") }  
 
-  		describe "filling in a new restaurant form" do
+  		describe "when creating a new restaurant" do
+  			before do
+  				fill_in "name", with: "Rotary"
+  				fill_in "description", with: "delicious"
+  				click_button "Submit"
+  			end
+
+  			it { should have_content("Rotary") }
+  			it { should have_content("delicious") }
+
+  			it "should redirect to the index page" do
+  				current_path.should == restaurants_path
+  			end
   		end
   end
 end	
