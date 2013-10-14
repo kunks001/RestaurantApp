@@ -22,5 +22,33 @@ describe "Restaurants" do
   				current_path.should == restaurants_path
   			end
   		end
+  	end
+  end
+
+  describe "edit" do
+  	let ( @restaurant = Restaurant.new(name: "Wagamamas", description: "Fantastic"))
+
+  	before { visit edit_restaurant_path(@restaurant) }
+
+  	it { should have_content("Edit restaurant") }
+  	it { should have_content("name") }
+  	it { should have_content("description") }
+
+  		describe "when editing a new restaurant" do
+
+  			before do
+  				fill_in "name", with: "Wagamamas"
+  				fill_in "description", with: "Not great"
+  				click_button "Submit"
+  			end
+
+  			it { should have_content("Wagamamas") }
+  			it { should have_content("Not great") }
+
+  			it "should redirect to the index page" do
+  				current_path.should == restaurants_path
+  			end
+  		end
+  	end
   end
 end	
