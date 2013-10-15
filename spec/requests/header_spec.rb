@@ -11,5 +11,13 @@ describe "Header" do
 
   		it { should have_content("Home")}
     end
+
+    describe "show" do
+    	let(:restaurant) { Restaurant.create(name: "Yum Bun", description: "Awesome") }
+  		before { visit restaurant_path(restaurant) }
+
+  		it { should have_content("Home") }
+  		it { should have_content("Edit") }
+    end
   end
 end
