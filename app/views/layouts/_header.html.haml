@@ -2,3 +2,5 @@
 	%ul
 		%li
 			= link_to "Home", restaurants_path
+			- if controller?("restaurants") && action?("show")
+				= link_to "Edit", edit_restaurant_path(@restaurant)

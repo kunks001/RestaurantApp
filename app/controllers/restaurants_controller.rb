@@ -14,6 +14,7 @@ class RestaurantsController < ApplicationController
 	end
 
 	def show
+		@restaurant = Restaurant.find(params[:id])
 	end
 
 	def edit
@@ -27,7 +28,7 @@ class RestaurantsController < ApplicationController
 			redirect_to restaurants_path
 		else
 			render 'edit'
-		end
+		end 
 	end
 
 	private

@@ -46,4 +46,14 @@ describe "Restaurants" do
   			end
   		end
   end
+
+  describe "show" do
+    let(:restaurant) { Restaurant.create(name: "Wagamamas", description: "Fantastic") }
+    before { visit restaurant_path(restaurant) }
+
+    it { should have_content("Wagamamas") }
+    it { should have_content("Fantastic") }
+    it { should have_content("Edit") }
+  end
+
 end	
