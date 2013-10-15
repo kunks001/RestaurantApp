@@ -22,17 +22,13 @@ describe "Restaurants" do
   				current_path.should == restaurants_path
   			end
   		end
-  	end
   end
 
   describe "edit" do
-  	let ( @restaurant = Restaurant.new(name: "Wagamamas", description: "Fantastic"))
-
-  	before { visit edit_restaurant_path(@restaurant) }
+  	let(:restaurant) { Restaurant.create(name: "Wagamamas", description: "Fantastic") }
+  	before { visit edit_restaurant_path(restaurant) }
 
   	it { should have_content("Edit restaurant") }
-  	it { should have_content("name") }
-  	it { should have_content("description") }
 
   		describe "when editing a new restaurant" do
 
@@ -49,6 +45,5 @@ describe "Restaurants" do
   				current_path.should == restaurants_path
   			end
   		end
-  	end
   end
 end	

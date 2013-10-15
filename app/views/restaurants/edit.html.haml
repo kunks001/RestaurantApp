@@ -1,0 +1,8 @@
+%h1 
+	Edit restaurant
+
+= form_for @restaurant do |f|
+	= f.text_field :name, placeholder: "name"
+	= f.text_field :description, placeholder: "description"
+
+	= f.submit "Submit"

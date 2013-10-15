@@ -40,7 +40,8 @@ group :test, :development do
 	gem 'selenium-webdriver'
   gem 'shoulda-matchers'	
   gem 'database_cleaner'
-
+  gem 'guard'
+  gem 'guard-rspec'
 end
 
 # Use ActiveModel has_secure_password
